@@ -2,7 +2,7 @@ mod utils;
 use utils::strings::get_first_word;
 use utils::fibonacci::fib;
 use utils::structs::initialize_structs;
-
+use utils::enums::initialize_enums;
 
 fn main() {
 
@@ -13,4 +13,5 @@ fn main() {
     println! ("{}", fib(4));
 
     initialize_structs();
+    initialize_enums();
 }
