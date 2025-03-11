@@ -22,6 +22,20 @@ fn move_int() {
     println!("x: {}, y: {}", x, y); 
 }
 
+fn move_through_function() {
+    let mut s: String = String::from("Hello");
+    takes_ownership(s);
+    println!("{}", s); 
+    // This will throw an error
+    // This is because s has been moved to the function takes_ownership
+}
+
+fn takes_ownership(some_string: String) {
+    println!("{}", some_string);
+}
+
+
+
 fn main() {
     create_string();
     clone_string();
