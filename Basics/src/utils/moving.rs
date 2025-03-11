@@ -1,7 +1,9 @@
 fn create_string() {
+    // ownership -> only one owner of a piece of data at a time
+    // When a variable goes out of scope, Rust will automatically call drop function to free the memory
     let s1 = String::from("Hello");
     let s2 = s1;
-    println!("{}", s1); 
+    // println!("{}", s1); 
     // This will throw an error
     // This is because s1 has been moved to s2, Rust does not allow multiple ownership
     // This is a feature of Rust to prevent data from being copied multiple times

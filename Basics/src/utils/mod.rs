@@ -7,3 +7,4 @@ pub mod enums;
 pub mod option_enum;
 pub mod error_enums;
 pub mod chrono_implementation;
+pub mod moving;
