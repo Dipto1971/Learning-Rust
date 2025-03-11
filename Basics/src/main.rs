@@ -4,6 +4,7 @@ use utils::fibonacci::fib;
 use utils::structs::initialize_structs;
 use utils::enums::initialize_enums;
 
+use chrono::Local;
 fn main() {
 
     let sentence = String::from("This is Dipto speaking!");
@@ -14,4 +15,6 @@ fn main() {
 
     initialize_structs();
     initialize_enums();
+
+    println!("Current time is: {}", Local::now());
 }
