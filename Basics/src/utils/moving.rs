@@ -25,7 +25,7 @@ fn move_int() {
 fn move_through_function() {
     let mut s: String = String::from("Hello");
     takes_ownership(s);
-    println!("{}", s); 
+    // println!("{}", s); 
     // This will throw an error
     // This is because s has been moved to the function takes_ownership
 }
