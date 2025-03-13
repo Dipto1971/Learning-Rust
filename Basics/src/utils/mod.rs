@@ -10,3 +10,6 @@ pub mod chrono_implementation;
 pub mod moving;
 pub mod borrowing_better;
 pub mod borrowing_ugly;
+pub mod vectors;
+pub mod vector_HashMap;
+pub mod hashmaps;
