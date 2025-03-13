@@ -8,3 +8,5 @@ pub mod option_enum;
 pub mod error_enums;
 pub mod chrono_implementation;
 pub mod moving;
+pub mod borrowing_better;
+pub mod borrowing_ugly;
