@@ -65,6 +65,13 @@ fn into_iterator() {
     }
 }
 
+// Sum method: This method is used to sum all the values in an iterator
+fn sum_method() {
+    let numbers = vec![1, 2, 3, 4, 5]; 
+    let numbers_iter = numbers.iter();
+    let sum: i32 = numbers_iter.sum(); // Now I can no longer use the numbers_iter iterator, it has been consumed
+    println!("Sum: {}", sum);
+}
 
 fn main () {
     iterating_using_for_loops();
@@ -76,3 +83,5 @@ fn main () {
 // 1. Iter: This is the most common iterator and is used to iterate over a collection without modifying it.
 // 2. IterMut: This is used to iterate over a collection and modify it.
 // 3. IntoIter: This is used to consume a collection and get an iterator that takes ownership of the collection.
+
+
