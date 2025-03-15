@@ -53,8 +53,26 @@ fn using_iterator_next_method() {
     }
 }
 
+// Into Iterator: This trait is used to convert collections into an iterator that takes ownership of the collection
+// This is useful when you want to consume the collection(vector) and don't need it anymore -> performance optimization
+// For example, you can use into_iter() to consume a vector and get an iterator that takes ownership of the vector
+fn into_iterator() {
+    let numbers = vec![1, 2, 3, 4, 5];
+    let number_iter = numbers.into_iter(); // Now I can no longer use the numbers vector
+
+    for number in number_iter {
+        println!("Number: {}", number);
+    }
+}
+
+
 fn main () {
     iterating_using_for_loops();
     mutating_using_iterators();
     using_iterator_next_method();
 }
+
+// Three types of iterators in Rust:
+// 1. Iter: This is the most common iterator and is used to iterate over a collection without modifying it.
+// 2. IterMut: This is used to iterate over a collection and modify it.
+// 3. IntoIter: This is used to consume a collection and get an iterator that takes ownership of the collection.
