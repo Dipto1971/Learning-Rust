@@ -73,10 +73,28 @@ fn sum_method() {
     println!("Sum: {}", sum);
 }
 
+// Map method: This method is used to transform each value in an iterator
+fn map_method() {
+    let numbers = vec![1, 2, 3, 4, 5];
+    let numbers_iter = numbers.iter();
+    let new_numbers = numbers_iter.map(|x| x * 2); // Now I can no longer use the numbers_iter iterator, it has been consumed
+    println!("{:?}", new_numbers);
+}
+
+// Filter method: This method is used to filter values in an iterator
+fn filter_method() {
+    let numbers = vec![1, 2, 3, 4, 5];
+    let numbers_iter = numbers.iter();
+    let new_numbers = numbers_iter.filter(|x| *x % 2 == 0).map(|x| x*2); // Now I can no longer use the numbers_iter iterator, it has been consumed
+    
+    let new_vec: Vec<i32> = new_numbers.collect();
+    for i in new_vec {
+        println!("{}", i);
+    }
+}
+
 fn main () {
-    iterating_using_for_loops();
-    mutating_using_iterators();
-    using_iterator_next_method();
+    filter_method();
 }
 
 // Three types of iterators in Rust:
