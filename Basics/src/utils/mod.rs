@@ -18,3 +18,4 @@ pub mod vectors;
 pub mod vector_hashmap;
 pub mod hashmaps;
 pub mod iterators;
+pub mod strings_slices;
