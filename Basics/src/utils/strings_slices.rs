@@ -45,4 +45,10 @@ fn main () {
     let word = first_word_slice(&s);
     println!("{}", word); // Slice of the original string
     println!("{}", s); // Original string
+
+
+    // Three types of commonly used Strings:
+    let name = String::from("Dipto"); // String type
+    let name_slice = &name[0..5]; // Has a view into the original string/ is a reference
+    let string_literal = "Dip"; // Literal is also an &str but it points directly to an address in the binary
 }
