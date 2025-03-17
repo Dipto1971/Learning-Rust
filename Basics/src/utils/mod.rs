@@ -20,3 +20,4 @@ pub mod hashmaps;
 pub mod iterators;
 pub mod strings_slices;
 pub mod generics;
+pub mod traits;
