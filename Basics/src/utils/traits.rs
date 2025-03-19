@@ -1,14 +1,34 @@
+
+use chrono::NaiveDate;
+
+/// The `Summary` trait defines a set of methods that must be implemented for a type to provide
+/// a summary of its content. This trait is useful for types that need to provide a concise
+/// description or summary of their data.
+///
+/// # Required Methods
+///
+/// - `summarize(&self) -> String`: Provides a summary of the content.
+/// - `summarize_author(&self) -> String`: Provides a summary of the author(s).
+/// - `summarize_description(&self) -> String`: Provides a summary of the description.
+
 pub trait Summary {
     fn summarize(&self) -> String;
-    fn summmarize_author(&self) -> String;
+    fn summmarize_creator(&self) -> String;
     fn summarize_description(&self) -> String;
 }
 
-struct Book {
-    name: String,
-    authors: Vec<String>,
-    description: String,
-    pages: u32
+pub struct Book {
+    pub name: String,
+    pub creators: Vec<String>,
+    pub description: String,
+    pub pages: u32
+}
+
+pub struct Movie {
+    pub name: String,
+    pub creators: Vec<String>,
+    pub release_date: NaiveDate,
+    pub description: String,
 }
 
 impl Summary for Book {
@@ -20,18 +40,28 @@ impl Summary for Book {
         let summary = self.description.clone();
         return summary;
     }
-    fn summmarize_author(&self) -> String {
-        let author = self.authors.join(", ");
-        return author;
+    fn summmarize_creator(&self) -> String {
+        let creator = self.creators.join(", ");
+        return creator;
     }
 }
 
-fn main () {
-    let book = Book {
-        name: String::from("A Song of Ice & Fire"),
-        authors: vec![String::from("George R. R. Martin"), String::from("Martin G R R")],
-        description: String::from("A Song of Ice and Fire is a series of high fantasy novels by the American author George R. R. Martin. He began writing the first volume, A Game of Thrones, in 1991, and published it in 1996. Martin, who originally envisioned the series as a trilogy, has released five out of seven planned volumes."),
-        pages: 250
-    };
-    println!("{}", book.summarize())
+impl Summary for Movie {
+    fn summarize(&self) -> String {
+        let summary = format!("{} directed by {}", self.name, self.creators.join(", "));
+        return summary;
+    }
+    fn summarize_description(&self) -> String {
+        let summary = self.description.clone();
+        return summary;
+    }
+    fn summmarize_creator(&self) -> String {
+        let creator = self.creators.join (" ,");
+        return creator;
+    }
+}
+
+// Traits as parameters
+pub fn notify(item: &impl Summary) {
+    println!("Breaking news: {}", item.summarize());
 }

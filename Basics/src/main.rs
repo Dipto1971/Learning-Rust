@@ -1,20 +1,24 @@
 mod utils;
-use utils::strings::get_first_word;
-use utils::fibonacci::fib;
-use utils::structs::initialize_structs;
-use utils::enums::initialize_enums;
+use utils::traits::{Summary, notify};
+use chrono::NaiveDate;
+use utils::traits::Book;
+use utils::traits::Movie;
 
-use chrono::Local;
 fn main() {
 
-    let sentence = String::from("This is Dipto speaking!");
-    let first_word = get_first_word(sentence);
-    println!("The first word of the sentence is: {}", first_word);
+    let book = Book {
+        name: String::from("A Song of Ice & Fire"),
+        creators: vec![String::from("George R. R. Martin"), String::from("Martin G R R")],
+        description: String::from("A Song of Ice and Fire is a series of high fantasy novels by the American author George R. R. Martin. He began writing the first volume, A Game of Thrones, in 1991, and published it in 1996. Martin, who originally envisioned the series as a trilogy, has released five out of seven planned volumes."),
+        pages: 250
+    };
+    println!("{}", book.summarize());
 
-    println! ("{}", fib(4));
-
-    initialize_structs();
-    initialize_enums();
-
-    println!("Current time is: {}", Local::now());
+    let movie = Movie{
+        name: String::from("The Shawshank Redemption"),
+        creators: vec![String::from("Frank Darabont")],
+        release_date: NaiveDate::from_ymd_opt(1994, 9, 23).expect("Invalid date"),
+        description: String::from("Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."),
+    };
+    notify(&movie);
 }
