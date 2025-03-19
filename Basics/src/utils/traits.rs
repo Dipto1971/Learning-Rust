@@ -1,26 +1,37 @@
 pub trait Summary {
     fn summarize(&self) -> String;
+    fn summmarize_author(&self) -> String;
+    fn summarize_description(&self) -> String;
 }
 
-struct User {
-    username: String,
-    email: String,
+struct Book {
+    name: String,
+    authors: Vec<String>,
+    description: String,
+    pages: u32
 }
 
-impl Summary for User {
+impl Summary for Book {
     fn summarize(&self) -> String {
-        format!("{} ({})", self.username, self.email)
+        let summary = format!("{} {}",self.name, self.description);
+        return summary;
+    }
+    fn summarize_description(&self) -> String {
+        let summary = self.description.clone();
+        return summary;
+    }
+    fn summmarize_author(&self) -> String {
+        let author = self.authors.join(", ");
+        return author;
     }
 }
 
 fn main () {
-    let user = User {
-        username: String::from("Dipto"),
-        email: String::from("dipto.haq771@gmail.com"),
+    let book = Book {
+        name: String::from("A Song of Ice & Fire"),
+        authors: vec![String::from("George R. R. Martin"), String::from("Martin G R R")],
+        description: String::from("A Song of Ice and Fire is a series of high fantasy novels by the American author George R. R. Martin. He began writing the first volume, A Game of Thrones, in 1991, and published it in 1996. Martin, who originally envisioned the series as a trilogy, has released five out of seven planned volumes."),
+        pages: 250
     };
-    println!("{}", user.summarize());
+    println!("{}", book.summarize())
 }
-// Traits are similar to interfaces in other languages. They define a set of methods that a type must implement in order to be 
-// considered a member of that trait. In this example, the Summary trait has a single method, summarize, that must be implemented 
-// by any type that wants to be considered a Summary. The User struct implements the Summary trait by providing an implementation 
-// of the summarize method. The main function creates a User instance and calls the summarize method on it. The output is "John".
