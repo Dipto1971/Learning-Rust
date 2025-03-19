@@ -65,3 +65,8 @@ impl Summary for Movie {
 pub fn notify(item: &impl Summary) {
     println!("Breaking news: {}", item.summarize());
 }
+
+// Trait bound Syntax
+pub fn notify_T<T: Summary>(item: T){ // T Generic should implement the summary trait now!
+    println!("Breaking news: {}", item.summarize());
+}

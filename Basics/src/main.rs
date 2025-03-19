@@ -13,6 +13,8 @@ fn main() {
         pages: 250
     };
     println!("{}", book.summarize());
+    println!("{}", book.summmarize_creator());
+    println!("{}", book.summarize_description());
 
     let movie = Movie{
         name: String::from("The Shawshank Redemption"),
