@@ -63,6 +63,7 @@ fn into_iterator() {
     for number in number_iter {
         println!("Number: {}", number);
     }
+    // Output: Number: 1 -> Number: 2 -> Number: 3 -> Number: 4 -> Number: 5
 }
 
 // Sum method: This method is used to sum all the values in an iterator
